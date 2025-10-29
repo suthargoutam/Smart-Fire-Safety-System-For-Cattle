@@ -40,8 +40,7 @@ The complete source code is available here:
 
 ## ⚡ Circuit Diagram
 Below is the circuit connection used in this project:
-👉 [project circut diagram.png](https://github.com/suthargoutam/Smart-Fire-Safety-System-For-Cattle/blob/main/project/project circut diagram.png)
-
+# For circuit diagram diagram i have already give file
 ---
 
 ## 🧰 Setup Instructions
