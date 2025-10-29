@@ -41,7 +41,7 @@ The complete source code is available here:
 
 ## ⚡ Circuit Diagram
 Add your circuit image here (optional):  
-`![Circuit Diagram](images/circuit_diagram.png)`
+C:\Users\GAUTAM\Pictures\project circut diagram.png
 
 ---
 
