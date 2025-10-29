@@ -40,10 +40,7 @@ The complete source code is available here:
 
 ## ⚡ Circuit Diagram
 Below is the circuit connection used in this project:
-
-<p align="center">
-  <img src="https://github.com/suthargoutam/Smart-Fire-Safety-System-For-Cattle/blob/main/images/project%20circuit%20diagram.png" alt="Circuit Diagram" width="600">
-</p>
+👉 [project circut diagram.png](https://github.com/suthargoutam/Smart-Fire-Safety-System-For-Cattle/blob/main/project/project circut diagram.png)
 
 ---
 
@@ -69,6 +66,6 @@ B.E. Electronics and Communication Engineering
 📧 goutamsuthar5095@gmail.com  
 💼 GitHub: [github.com/suthargoutam](https://github.com/suthargoutam)
 
----
+--- 
 
 ⭐ *If you find this project helpful, please give it a star on GitHub!*
