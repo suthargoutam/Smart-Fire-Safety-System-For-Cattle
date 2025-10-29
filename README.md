@@ -41,7 +41,7 @@ The complete source code is available here:
 ## ⚡ Circuit Diagram
 Below is the circuit connection used in this project:
 
-![Circuit Diagram](https://github.com/suthargoutam/Smart-Fire-Safety-System-For-Cattle/blob/main/images/circuit_diagram.png)
+![Circuit Diagram](https://github.com/suthargoutam/Smart-Fire-Safety-System-For-Cattle/blob/main/images/project%20circuit%20diagram.png)
 
 ---
 
