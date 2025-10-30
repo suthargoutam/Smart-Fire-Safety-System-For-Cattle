@@ -35,6 +35,7 @@ This system helps protect animals during fire accidents by using sensors, actuat
 ## 💻 Source Code
 The complete source code is available here:  
 👉 [test.c](https://github.com/suthargoutam/Smart-Fire-Safety-System-For-Cattle/blob/main/test.c)
+
 ---
 
 ## ⚡ Circuit Diagram
@@ -67,4 +68,4 @@ B.E. Electronics and Communication Engineering
 
 --- 
 
-⭐ *If you find this project helpful, please give it a star on GitHub!*
+⭐ *If you find this project helpful, please give it a star on GitHub! Thank You*
