@@ -68,4 +68,4 @@ B.E. Electronics and Communication Engineering
 
 --- 
 
-⭐ *If you find this project helpful, please give it a star on GitHub! Thank You*
+⭐ *If you find this project helpful, please give it a star on GitHub! Thank full*
