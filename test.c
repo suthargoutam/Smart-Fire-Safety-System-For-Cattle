@@ -1,20 +1,20 @@
 #include <Servo.h>
 
-Servo s1;
-Servo s2;
+Servo rodServo;   // Controls metal rod
+Servo doorServo;  // Controls door
 
-int sp1 = D3;
-int sp2 = D4;
-int fire = A0;     // Flame sensor connected to analog pin A0
-int buzzer = D1;   // Buzzer connected to digital pin D1
-int relay = D2;    // Relay connected to digital pin D2
-int rled = D5;     // Red LED connected to digital pin D5
-int gled = D6;     // Green LED connected to digital pin D6
+int rodPin = D5;    // Servo for rod
+int doorPin = D6;   // Servo for door
+int fire = A0;      // Flame sensor analog pin
+int buzzer = D1;    // Buzzer
+int relay = D2;     // Relay for water/fan
+int rled = D7;      // Red LED (fire alert)
+int gled = D4;      // Green LED (safe mode)
 
-int op;            // Variable to store flame sensor value
+int fireValue;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   pinMode(relay, OUTPUT);
   pinMode(buzzer, OUTPUT);
@@ -22,49 +22,57 @@ void setup() {
   pinMode(rled, OUTPUT);
   pinMode(gled, OUTPUT);
 
-  s1.attach(sp1);
-  s2.attach(sp2);
+  rodServo.attach(rodPin);
+  doorServo.attach(doorPin);
 
-  // Start with everything off
+  // Initial (safe) state
   digitalWrite(relay, HIGH);
   digitalWrite(buzzer, LOW);
   digitalWrite(rled, LOW);
   digitalWrite(gled, HIGH);
+
+  // Servos at initial positions
+  rodServo.write(0);    // Rod up (holding rope)
+  doorServo.write(0);   // Door closed
 }
 
 void loop() {
-  op = analogRead(fire);
+  fireValue = analogRead(fire);
   Serial.print("Flame Sensor Value: ");
-  Serial.println(op);
+  Serial.println(fireValue);
 
-  if (op < 200) {  // Flame detected
-    Serial.println("🔥 Fire detected!");
-    
-    s1.write(90);
-    s2.write(180);
+  if (fireValue < 200) {   // 🔥 Fire detected
+    Serial.println("🔥 Fire detected! Releasing animal and activating safety system!");
 
+    // 1️⃣ Drop the metal rod
+    rodServo.write(90);    // Moves rod down to release rope
+
+    // 2️⃣ Open the animal door
+    doorServo.write(120);  // Adjust angle for your door mechanism
+
+    // 3️⃣ Turn ON safety alerts
     digitalWrite(gled, LOW);
-    digitalWrite(relay, LOW);   // Activate relay (assuming LOW triggers it)
+    digitalWrite(relay, LOW);   // Activate pump/fan
     digitalWrite(buzzer, HIGH);
     digitalWrite(rled, HIGH);
-    
+
     delay(500);
     digitalWrite(rled, LOW);
     digitalWrite(buzzer, LOW);
     delay(500);
   } 
-  else if (op >= 200) {  // No flame
-    Serial.println("✅ No fire detected.");
+  else {  // ✅ No fire
+    Serial.println("✅ No fire. System normal.");
+
     digitalWrite(relay, HIGH);
     digitalWrite(buzzer, LOW);
     digitalWrite(rled, LOW);
     digitalWrite(gled, HIGH);
-    
-    s1.write(0);
-    s2.write(0);
+
+    // Reset servos to normal state
+    rodServo.write(0);    // Rod up (secure rope)
+    doorServo.write(0);   // Door closed
+
     delay(1000);
-  } 
-  else {
-    Serial.println("⚠️ Sensor error");
   }
 }
